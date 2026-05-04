@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Binternz — Interns from Bharat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Noto+Serif:wght@400;700;900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface-variant": "#f1dfd3", "prestige-gold": "#FBBF24", "surface-dim": "#e8d7cb",
+          "surface-bright": "#fff8f5", "inverse-primary": "#ffb77a", "on-secondary-container": "#067500",
+          "surface": "#fff8f5", "background": "#fff8f5", "secondary": "#056e00", "primary": "#8f4e00",
+          "chip-blue-text": "#1D4ED8", "tertiary-fixed-dim": "#c0c4ea", "text-primary": "#1A1A2E",
+          "border-base": "#E5E7EB", "outline": "#887364", "on-primary-fixed-variant": "#6d3a00",
+          "on-error": "#ffffff", "tertiary-fixed": "#dee0ff", "on-tertiary-fixed-variant": "#404564",
+          "on-primary-fixed": "#2e1500", "card-bg": "#FFFFFF", "on-tertiary-fixed": "#141936",
+          "page-bg": "#F8F9FB", "chip-green-text": "#15803D", "india-green": "#138808",
+          "primary-fixed": "#ffdcc2", "surface-container-highest": "#f1dfd3", "saffron-main": "#FF9933",
+          "saffron-light": "#FFB347", "surface-tint": "#8f4e00", "on-primary": "#ffffff",
+          "chip-orange-text": "#C2410C", "primary-fixed-dim": "#ffb77a", "inverse-on-surface": "#ffeee2",
+          "on-secondary-fixed-variant": "#035300", "secondary-container": "#8dfc75", "error": "#ba1a1a",
+          "on-error-container": "#93000a", "chip-blue-bg": "#EFF6FF", "primary-container": "#ff9933",
+          "inverse-surface": "#392e27", "surface-container-lowest": "#ffffff", "secondary-fixed-dim": "#72de5c",
+          "on-secondary": "#ffffff", "chip-orange-bg": "#FFF7ED", "text-muted": "#6B7280",
+          "secondary-fixed": "#8dfc75", "on-surface-variant": "#554336", "on-background": "#231a13",
+          "surface-container": "#fdebdf", "on-tertiary": "#ffffff", "on-primary-container": "#693800",
+          "surface-container-low": "#fff1e8", "tertiary": "#585c7d", "error-container": "#ffdad6",
+          "on-secondary-fixed": "#012200", "on-surface": "#231a13", "chip-green-bg": "#F0FDF4",
+          "surface-container-high": "#f7e5d9", "on-tertiary-container": "#3d4261",
+          "outline-variant": "#dbc2b0", "navy-deep": "#0A0F2C", "tag-default-bg": "#F3F4F6",
+          "tertiary-container": "#abafd4"
+        },
+        borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        spacing: {
+          "label-min-width": "100px", "max-width": "900px", "container-padding-bottom": "80px",
+          "container-padding-top": "56px", "card-gap": "20px", "container-padding-inline": "20px",
+          "inner-padding": "24px"
+        },
+        fontFamily: {
+          "body-sm": ["Be Vietnam Pro"], "button-text": ["Be Vietnam Pro"], "card-h2": ["Noto Serif"],
+          "label-bold": ["Be Vietnam Pro"], "hero-h1": ["Noto Serif"], "body-main": ["Be Vietnam Pro"],
+          "stat-number": ["Noto Serif"]
+        },
+        fontSize: {
+          "body-sm": ["13.5px", { lineHeight: "1.5", fontWeight: "400" }],
+          "button-text": ["13px", { lineHeight: "1", fontWeight: "600" }],
+          "card-h2": ["1.3rem", { lineHeight: "1.4", fontWeight: "700" }],
+          "label-bold": ["12px", { lineHeight: "1", letterSpacing: "0.5px", fontWeight: "700" }],
+          "hero-h1": ["clamp(2rem, 5vw, 3.6rem)", { lineHeight: "1.1", fontWeight: "900" }],
+          "body-main": ["15px", { lineHeight: "1.6", fontWeight: "400" }],
+          "stat-number": ["28px", { lineHeight: "1", fontWeight: "700" }]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  .tricolor-stripe {
+    background: linear-gradient(to right, #FF9933 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #138808 66.66%);
+    height: 5px; width: 100%;
+  }
+  .gradient-saffron { background: linear-gradient(135deg, #FF9933, #E8861F); }
+  .text-gradient-saffron {
+    background: linear-gradient(135deg, #FF9933, #FFB347);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero-blob { background: radial-gradient(circle, rgba(255,153,51,0.12) 0%, rgba(255,153,51,0) 70%); }
+  .hover-lift { transition: transform 0.22s ease, box-shadow 0.22s ease; }
+  .hover-lift:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+  .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
+  .bento-item { border-radius: 12px; overflow: hidden; }
+  #mobile-menu { display: none; }
+  #mobile-menu.open { display: flex; }
+</style>
+</head>
+<body class="bg-page-bg text-text-primary font-body-main antialiased selection:bg-saffron-light selection:text-white">
+
+<!-- Nav -->
+<nav class="bg-white/95 backdrop-blur-md font-serif font-bold tracking-tight fixed top-0 w-full z-50 border-t-4 border-t-orange-500 border-b border-slate-200 shadow-sm">
+  <div class="max-w-[900px] mx-auto flex justify-between items-center h-16 px-6">
+    <a href="index.html" class="text-2xl font-black font-serif text-slate-900 flex items-center gap-2">
+      <img alt="Binternz" class="h-8 w-8 object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ujWJf_iyErpC5epd2E7yGVJum6-V-bfbSayQYlqWKelt9qwifKNJz7H2NnIj99LkUBfKfPa-czSO9HFxTaSbkNe__0PtSWOsgjoC6ybVTll1Ewhbxp36FUkRJq1jXIPG-eJuCv-iQPsnOnK_vQlIDm073DDLCwXah1P_Slx63QvBttjYqomOmiAwYsCuSaNO6UtA-bqKQ04tAVLCabQJBr6la3QWIHWPnTAMu0AzNBOy6chj4xD7e3RTNSJdZEUeQcApzlWMNnKL5U"/>
+      Binternz
+    </a>
+    <div class="hidden md:flex items-center gap-1">
+      <a class="text-orange-600 border-b-2 border-orange-500 pb-1 px-3 py-2" href="index.html">Home</a>
+      <a class="text-slate-600 hover:text-orange-500 hover:bg-slate-50 rounded-lg px-3 py-2 transition-colors" href="students.html">Students</a>
+      <a class="text-slate-600 hover:text-orange-500 hover:bg-slate-50 rounded-lg px-3 py-2 transition-colors" href="companies.html">Companies</a>
+      <a class="text-slate-600 hover:text-orange-500 hover:bg-slate-50 rounded-lg px-3 py-2 transition-colors" href="about.html">About Us</a>
+    </div>
+    <a href="companies.html#contact" class="hidden md:inline-flex gradient-saffron text-white font-button-text text-button-text px-4 py-2 rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all">
+      Contact Us
+    </a>
+    <button id="nav-toggle" class="md:hidden text-slate-600 p-2" onclick="document.getElementById('mobile-menu').classList.toggle('open')">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="flex-col border-t border-slate-100 bg-white px-6 py-4 gap-1 md:hidden">
+    <a class="block text-orange-600 font-semibold py-2 border-b border-slate-50" href="index.html">Home</a>
+    <a class="block text-slate-600 hover:text-orange-500 py-2 border-b border-slate-50" href="students.html">Students</a>
+    <a class="block text-slate-600 hover:text-orange-500 py-2 border-b border-slate-50" href="companies.html">Companies</a>
+    <a class="block text-slate-600 hover:text-orange-500 py-2 border-b border-slate-50" href="about.html">About Us</a>
+    <a class="inline-flex mt-3 gradient-saffron text-white font-button-text text-button-text px-4 py-2 rounded-lg" href="companies.html#contact">Contact Us</a>
+  </div>
+</nav>
+
+<main class="pt-16">
+  <!-- Hero -->
+  <section class="relative bg-navy-deep text-white pt-20 pb-28 px-5 overflow-hidden">
+    <div class="tricolor-stripe absolute top-0 left-0"></div>
+    <div class="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] hero-blob pointer-events-none"></div>
+    <div class="absolute bottom-[-20%] right-[-10%] w-[400px] h-[400px] hero-blob pointer-events-none"></div>
+    <div class="max-w-[900px] mx-auto relative z-10 text-center">
+      <h1 class="font-hero-h1 text-hero-h1 mb-6 leading-tight">
+        Empowering India's Next Generation of <span class="text-gradient-saffron">Professionals</span> 🇮🇳
+      </h1>
+      <p class="font-body-main text-body-main text-slate-300 max-w-2xl mx-auto mb-10">
+        Binternz connects ambitious students with forward-thinking companies. We bridge the gap between academic potential and industry reality, building a stronger workforce for tomorrow.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+        <a href="students.html" class="gradient-saffron text-white font-button-text text-button-text px-8 py-3 rounded-lg shadow-md hover:shadow-lg hover:-translate-y-1 transition-all w-full sm:w-auto text-center">
+          For Students
+        </a>
+        <a href="companies.html" class="bg-transparent border border-white/30 text-white font-button-text text-button-text px-8 py-3 rounded-lg hover:bg-white/5 transition-colors w-full sm:w-auto text-center">
+          For Companies
+        </a>
+      </div>
+    </div>
+    <div class="tricolor-stripe absolute bottom-0 left-0"></div>
+  </section>
+
+  <!-- Stats -->
+  <section class="py-12 bg-white border-b border-border-base">
+    <div class="max-w-[900px] mx-auto px-5">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="font-stat-number text-stat-number text-navy-deep mb-1">500+</div>
+          <div class="font-label-bold text-label-bold text-text-muted uppercase tracking-wider">Partner Companies</div>
+        </div>
+        <div>
+          <div class="font-stat-number text-stat-number text-navy-deep mb-1">10k+</div>
+          <div class="font-label-bold text-label-bold text-text-muted uppercase tracking-wider">Students Placed</div>
+        </div>
+        <div>
+          <div class="font-stat-number text-stat-number text-navy-deep mb-1">98%</div>
+          <div class="font-label-bold text-label-bold text-text-muted uppercase tracking-wider">Success Rate</div>
+        </div>
+        <div>
+          <div class="font-stat-number text-stat-number text-navy-deep mb-1">50+</div>
+          <div class="font-label-bold text-label-bold text-text-muted uppercase tracking-wider">Cities Reached</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Bento -->
+  <section class="py-14 pb-20 bg-page-bg">
+    <div class="max-w-[900px] mx-auto px-5">
+      <div class="flex items-center gap-4 mb-8">
+        <h2 class="font-card-h2 text-card-h2 text-navy-deep whitespace-nowrap">Our Core Services</h2>
+        <div class="h-px bg-border-base w-full"></div>
+      </div>
+      <div class="bento-grid">
+
+        <!-- Card 1 Large -->
+        <div class="bento-item col-span-12 md:col-span-8 bg-card-bg border border-border-base hover-lift flex flex-col p-6 relative">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-saffron-main/5 rounded-bl-full pointer-events-none"></div>
+          <div class="flex items-start justify-between mb-4">
+            <div class="w-[38px] h-[38px] rounded-[10px] gradient-saffron flex items-center justify-center text-white font-stat-number text-lg z-10">01</div>
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-chip-green-bg text-chip-green-text border border-chip-green-text/20">Premium</span>
+          </div>
+          <h3 class="font-card-h2 text-card-h2 text-navy-deep mb-2 z-10">Internship Placements</h3>
+          <p class="font-body-sm text-body-sm text-text-muted mb-4 flex-grow z-10">
+            We match top-tier talent with industry leaders. Our rigorous screening process ensures a perfect fit for both students seeking practical experience and companies looking for fresh perspectives.
+          </p>
+          <div class="flex flex-col gap-2 z-10">
+            <div class="flex text-sm">
+              <span class="w-[100px] font-label-bold text-label-bold text-text-muted shrink-0 pt-1">Focus</span>
+              <span class="text-text-primary">Tech, Finance, Marketing, Operations</span>
+            </div>
+            <div class="flex text-sm">
+              <span class="w-[100px] font-label-bold text-label-bold text-text-muted shrink-0 pt-1">Duration</span>
+              <span class="text-text-primary">3 to 6 months typical</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 Dark -->
+        <div class="bento-item col-span-12 md:col-span-4 bg-navy-deep text-white border border-border-base hover-lift flex flex-col p-6">
+          <div class="flex items-start justify-between mb-4">
+            <div class="w-[38px] h-[38px] rounded-[10px] bg-white/10 flex items-center justify-center text-white font-stat-number text-lg">02</div>
+          </div>
+          <h3 class="font-card-h2 text-card-h2 mb-2">Skill Workshops</h3>
+          <p class="font-body-sm text-body-sm text-slate-300 mb-4 flex-grow">
+            Industry-led training sessions designed to bridge the gap between academic curriculum and corporate requirements.
+          </p>
+          <a class="inline-flex items-center text-saffron-light font-button-text text-button-text hover:text-saffron-main transition-colors" href="students.html">
+            Explore Programs <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+          </a>
+        </div>
+
+        <!-- Card 3 White -->
+        <div class="bento-item col-span-12 md:col-span-4 bg-card-bg border border-border-base hover-lift flex flex-col p-6">
+          <div class="flex items-start justify-between mb-4">
+            <div class="w-[38px] h-[38px] rounded-[10px] gradient-saffron flex items-center justify-center text-white font-stat-number text-lg">03</div>
+          </div>
+          <h3 class="font-card-h2 text-card-h2 text-navy-deep mb-2">Corporate Hiring</h3>
+          <p class="font-body-sm text-body-sm text-text-muted mb-4 flex-grow">
+            Streamlined recruitment solutions for businesses seeking vetted, high-potential candidates ready to contribute from day one.
+          </p>
+          <a class="inline-flex items-center text-primary font-button-text text-button-text hover:text-primary/80 transition-colors" href="companies.html">
+            Partner With Us <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+          </a>
+        </div>
+
+        <!-- Trust Card -->
+        <div class="bento-item col-span-12 md:col-span-8 bg-surface-bright border border-outline-variant hover-lift flex flex-col md:flex-row items-center p-6 gap-6">
+          <img alt="Students collaborating" class="w-full md:w-1/3 h-32 object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsh1QiZ3ibXc3Q9w2Lx4zRSdr-iSy1HkogjdZR5xPXLC-mtBglEOF7YsA9PtQPkw9LCrSTER14f9C5qw8cSqSbTHWRVY7GQZutFzx1ISnWTM8Yz5hSAOz_6uVEn8ZYHkajAERz9ZT4zfoXqrU24UGDJh5eaK_vCIJ1oxol0x2v3k7B87iIj63PfqSASyElg6c1yGTZ8XbgysQEsqad5KZ-fqEZ2iE1liNUvsqxE1k74GqesTS_vL4FxshL04plaleMuyMDLb44OYgl"/>
+          <div class="flex-1">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="material-symbols-outlined text-saffron-main text-xl">verified</span>
+              <h3 class="font-card-h2 text-card-h2 text-navy-deep">Verified Opportunities</h3>
+            </div>
+            <p class="font-body-sm text-body-sm text-text-muted mb-3">
+              Every company on our platform undergoes a strict vetting process. We ensure safe, equitable, and valuable experiences for all our candidates.
+            </p>
+            <div class="border border-dashed border-prestige-gold bg-chip-orange-bg p-3 rounded text-xs text-on-surface-variant flex items-start gap-2">
+              <span class="material-symbols-outlined text-prestige-gold text-sm mt-0.5">info</span>
+              <span>All internships provide formal certification and letters of recommendation upon successful completion.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-slate-900 font-serif text-sm w-full border-t-4 border-t-[#FF9933] border-b-4 border-b-[#138808] border-x-0">
+  <div class="max-w-[900px] mx-auto py-12 px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+    <div class="flex flex-col items-center md:items-start gap-2">
+      <div class="text-xl font-bold text-white flex items-center gap-2">
+        <span class="material-symbols-outlined text-orange-500">work</span> Binternz
+      </div>
+      <span class="text-slate-400 text-xs">© 2024 Binternz Intermediary Services. Proudly Indian. 🇮🇳</span>
+    </div>
+    <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
+      <div class="flex flex-wrap justify-center gap-6">
+        <a class="text-slate-400 hover:text-orange-400 transition-colors" href="students.html">For Students</a>
+        <a class="text-slate-400 hover:text-orange-400 transition-colors" href="companies.html">For Companies</a>
+        <a class="text-slate-400 hover:text-orange-400 transition-colors" href="about.html">About Us</a>
+        <a class="text-slate-400 hover:text-orange-400 transition-colors" href="companies.html#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
