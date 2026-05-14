@@ -73,6 +73,37 @@
   .hover-lift:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
   #mobile-menu { display: none; }
   #mobile-menu.open { display: flex; }
+  @keyframes carousel-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+  .carousel-container {
+    overflow: hidden;
+    width: 100%;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 1.25rem;
+    animation: carousel-scroll 60s linear infinite;
+    min-width: 286%;
+  }
+  .carousel-track:hover {
+    animation-play-state: paused;
+  }
+  .carousel-item {
+    flex: 0 0 calc(33% - 0.625rem);
+    min-width: calc(33% - 0.625rem);
+  }
+  @media (max-width: 768px) {
+    .carousel-item {
+      flex: 0 0 100%;
+      min-width: 100%;
+    }
+    .carousel-track {
+      min-width: 500%;
+      animation: carousel-scroll 75s linear infinite;
+    }
+  }
 </style>
 </head>
 <body class="bg-page-bg text-text-primary font-body-main antialiased selection:bg-saffron-light selection:text-white">
@@ -86,9 +117,9 @@
     </a>
     <div class="hidden md:flex items-center gap-1">
       <a class="text-slate-600 hover:text-orange-500 hover:bg-slate-50 rounded-lg px-3 py-2 transition-colors" href="index.html">Home</a>
+      <a class="text-slate-600 hover:text-orange-500 hover:bg-slate-50 rounded-lg px-3 py-2 transition-colors" href="about.html">About Us</a>
       <a class="text-orange-600 border-b-2 border-orange-500 pb-1 px-3 py-2" href="students.html">Students</a>
       <a class="text-slate-600 hover:text-orange-500 hover:bg-slate-50 rounded-lg px-3 py-2 transition-colors" href="companies.html">Companies</a>
-      <a class="text-slate-600 hover:text-orange-500 hover:bg-slate-50 rounded-lg px-3 py-2 transition-colors" href="about.html">About Us</a>
     </div>
     <a href="companies.html#contact" class="hidden md:inline-flex gradient-saffron text-white font-button-text text-button-text px-4 py-2 rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all">
       Contact Us
@@ -250,6 +281,89 @@
     <!-- Replication note: duplicate any "Internship Placeholder" card and increment badge number (03, 04, ...). -->
   </section>
 
+  <!-- Student Testimonials -->
+  <section class="max-w-[900px] mx-auto px-5 py-12 md:py-16">
+    <div class="flex items-center gap-4 mb-8">
+      <h2 class="font-card-h2 text-card-h2 text-text-primary whitespace-nowrap">Student Testimonials</h2>
+      <div class="h-px bg-border-base flex-grow"></div>
+    </div>
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <!-- Testimonial 1 -->
+        <div class="carousel-item">
+          <div class="bg-card-bg border border-border-base rounded-xl p-6 hover-lift flex flex-col h-full">
+            <div class="flex gap-1 mb-4">
+              <span class="material-symbols-outlined text-saffron-main">star</span>
+              <span class="material-symbols-outlined text-saffron-main">star</span>
+              <span class="material-symbols-outlined text-saffron-main">star</span>
+              <span class="material-symbols-outlined text-saffron-main">star</span>
+              <span class="material-symbols-outlined text-saffron-main">star</span>
+            </div>
+            <p class="font-body-sm text-body-sm text-text-muted mb-4 flex-grow italic">"Binternz connected me with a startup where I worked on real projects from day one. The experience was invaluable and helped me land my first full-time job. Grateful!"</p>
+            <div>
+              <p class="font-label-bold text-label-bold text-text-primary">Aarav Kapoor</p>
+              <p class="font-body-sm text-body-sm text-text-muted">B.Tech, Delhi University • Interned at SaaS Startup</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="carousel-item">
+          <div class="bg-card-bg border border-border-base rounded-xl p-6 hover-lift flex flex-col h-full">
+            <div class="flex gap-1 mb-4">
+              <span class="material-symbols-outlined text-saffron-main">star</span>
+              <span class="material-symbols-outlined text-saffron-main">star</span>
+              <span class="material-symbols-outlined text-saffron-main">star</span>
+              <span class="material-symbols-outlined text-saffron-main">star</span>
+              <span class="material-symbols-outlined text-saffron-main">star</span>
+            </div>
+            <p class="font-body-sm text-body-sm text-text-muted mb-4 flex-grow italic">"What sets Binternz apart is their commitment to finding the right fit. The internship I got wasn't just a paycheck - it was a learning experience that shaped my career direction."</p>
+            <div>
+              <p class="font-label-bold text-label-bold text-text-primary">Divya Nair</p>
+              <p class="font-body-sm text-body-sm text-text-muted">Commerce Grad, Mumbai University • Marketing Intern</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="carousel-item">
+          <div class="bg-card-bg border border-border-base rounded-xl p-6 hover-lift flex flex-col h-full">
+            <div class="flex gap-1 mb-4">
+              <span class="material-symbols-outlined text-saffron-main">star</span>
+              <span class="material-symbols-outlined text-saffron-main">star</span>
+              <span class="material-symbols-outlined text-saffron-main">star</span>
+              <span class="material-symbols-outlined text-saffron-main">star</span>
+              <span class="material-symbols-outlined text-saffron-main">star</span>
+            </div>
+            <p class="font-body-sm text-body-sm text-text-muted mb-4 flex-grow italic">"The entire process was smooth from application to onboarding. The company was genuinely invested in my growth and I ended up extending the internship. Highly recommended!"</p>
+            <div>
+              <p class="font-label-bold text-label-bold text-text-primary">Ishaan Verma</p>
+              <p class="font-body-sm text-body-sm text-text-muted">BCA, Bangalore University • Product Development Intern</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="carousel-item">
+          <div class="bg-card-bg border border-border-base rounded-xl p-6 hover-lift flex flex-col h-full">
+            <div class="flex gap-1 mb-4">
+              <span class="material-symbols-outlined text-saffron-main">star</span>
+              <span class="material-symbols-outlined text-saffron-main">star</span>
+              <span class="material-symbols-outlined text-saffron-main">star</span>
+              <span class="material-symbols-outlined text-saffron-main">star</span>
+              <span class="material-symbols-outlined text-saffron-main">star</span>
+            </div>
+            <p class="font-body-sm text-body-sm text-text-muted mb-4 flex-grow italic">"I was initially worried about not having experience. Binternz paired me with a mentor who guided me through everything. Best decision to apply was choosing Binternz!"</p>
+            <div>
+              <p class="font-label-bold text-label-bold text-text-primary">Sneha Chatterjee</p>
+              <p class="font-body-sm text-body-sm text-text-muted">Journalism Student, Kolkata University • Content Writing Intern</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Newsletter -->
   <section class="max-w-[900px] mx-auto px-5 pb-20">
     <div class="border-2 border-dashed border-outline-variant bg-surface-container-low rounded-2xl p-8 md:p-12 text-center relative overflow-hidden">
@@ -260,7 +374,7 @@
         </div>
         <h2 class="font-card-h2 text-2xl md:text-3xl text-text-primary">Stay Ahead of the Curve</h2>
         <p class="font-body-main text-text-muted">
-          Join 10,000+ students receiving weekly career tips, exclusive internship alerts, and invitations to professional workshops.
+          Join hundereds of students receiving weekly career tips, exclusive internship alerts, and invitations to professional workshops.
         </p>
         <form id="newsletter-form" class="flex flex-col sm:flex-row gap-3 mt-8" onsubmit="submitNewsletter(event)">
           <input id="nl-email" class="flex-grow px-4 py-3 rounded-lg border border-border-base focus:ring-2 focus:ring-saffron-main focus:border-saffron-main outline-none transition-all" placeholder="Enter your email address" type="email" required/>
@@ -292,10 +406,19 @@
       </div>
       <span class="text-slate-400 text-xs">© 2026 Binternz. Proudly Indian. 🇮🇳</span>
     </div>
-    <div class="flex flex-wrap justify-center gap-6">
-      <a class="text-slate-400 hover:text-orange-400 transition-colors" href="#">Linkedin</a>
-      <a class="text-slate-400 hover:text-orange-400 transition-colors" href="#">Instagram</a>
-      <a class="text-slate-400 hover:text-orange-400 transition-colors" href="#">Youtube</a>
+    <div class="flex flex-wrap justify-center gap-6 items-center">
+      <a class="hover:opacity-80 transition-opacity inline-flex items-center gap-1" href="mailto:binternz.officially@gmail.com" title="Email">
+        <img src="https://cdn-icons-png.flaticon.com/128/2099/2099199.png" alt="Email" class="w-5 h-5" style="filter: brightness(0) invert(1);">
+      </a>
+      <a class="hover:opacity-80 transition-opacity inline-flex items-center gap-1" href="#" title="LinkedIn">
+        <img src="https://cdn-icons-png.flaticon.com/128/3488/3488334.png" alt="LinkedIn" class="w-5 h-5" style="filter: brightness(0) invert(1);">
+      </a>
+      <a class="hover:opacity-80 transition-opacity inline-flex items-center gap-1" href="#" title="Instagram">
+        <img src="https://cdn-icons-png.flaticon.com/128/1400/1400829.png" alt="Instagram" class="w-5 h-5" style="filter: brightness(0) invert(1);">
+      </a>
+      <a class="hover:opacity-80 transition-opacity inline-flex items-center gap-1" href="#" title="YouTube">
+        <img src="https://cdn-icons-png.flaticon.com/128/2111/2111795.png" alt="YouTube" class="w-5 h-5" style="filter: brightness(0) invert(1);">
+      </a>
     </div>
   </div>
 </footer>
